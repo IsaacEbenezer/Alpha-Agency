@@ -83,13 +83,13 @@ function LandingPage() {
 
   return (
     <div>
-      <div className="relative h-screen flex">
+      <div className="relative h-screen flex banner">
         <div>
-          <img src={logo} alt="logo" className="absolute top-10 left-[8rem]" />
+          <img src={logo} alt="logo" className="absolute top-10 left-[8rem] " />
           <img
             src={banner}
             alt="banner"
-            className="object-cover w-full h-full"
+            className="w-full h-full banner"
           />
           <div className="absolute top-[34%] left-[8rem] font-bold w-[32rem] text-3xl font-serif text-gray-900">
             <span>Take your graphics protection</span> <br />
@@ -126,7 +126,7 @@ function LandingPage() {
             </div>
           </div>
 
-          <div className="relative h-screen ">
+          <div className="relative h-screen truck">
             <img src={back} alt="truck" className="w-full h-full" />
             <div className="absolute top-[19%] left-[8rem]">
               <span className="text-4xl font-bold">
@@ -172,8 +172,9 @@ function LandingPage() {
             </div>
           </div>
         </div>
+        <div className="form-container absolute inset-0 flex items-center justify-center">
         <div className="absolute left-[700px] top-[10%] w-[37%] bg-white shadow-xl rounded-lg opacity-100">
-          <form className="p-8" onSubmit={handleSubmit}>
+          <form className="p-8 space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10" onSubmit={handleSubmit}>
             <h1 className="text-2xl font-bold mb-4">
               Connect With Us <br />
               <span className="text-gray-600 text-sm">
@@ -382,7 +383,9 @@ function LandingPage() {
             ) : null}
           </form>
         </div>
+        </div>
       </div>
+     
     </div>
   );
 }
