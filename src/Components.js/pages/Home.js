@@ -10,7 +10,7 @@ function Home() {
         <LandingPage/>
         <WhyUs/>
         <Footer/> 
-        <p className='text-center mt-2 mb-2'>&copy; 2023 Avery Dennison Label Packaging Material. All rights reserved.</p>
+        <p className='relative top-[565px]  text-center mt-2 '>&copy; 2023 Avery Dennison Label Packaging Material. All rights reserved.</p>
     </div>
   )
 }

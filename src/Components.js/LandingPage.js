@@ -3,8 +3,84 @@ import banner from "../assests/banner image copy.png";
 import logo from "../assests/Asset 3@4x-8.png";
 import back from "../assests/Group 217.png";
 import icon from "../assests/Group 110.png";
+import { useState } from "react";
 
 function LandingPage() {
+  const [formErrors, setFormErrors] = useState({});
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    contactNumber: "",
+    company: "",
+    state: "",
+    describe: "",
+    preferred: "",
+    message: "",
+    terms: false,
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const errors = validateForm();
+
+    if (Object.keys(errors).length === 0) {
+      // No errors, submit the form
+      setFormErrors({});
+      setSubmitted(true);
+      // Perform form submission or other actions
+      // ...
+    } else {
+      // Errors found, update the formErrors state
+      setFormErrors(errors);
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+
+    // Validate first name
+    if (formData.firstName.trim() === "") {
+      errors.firstName = "First name is required";
+    }
+
+    // Validate last name
+    if (formData.lastName.trim() === "") {
+      errors.lastName = "Last name is required";
+    }
+
+    // Validate email
+    if (formData.email.trim() === "") {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email is invalid";
+    }
+
+    // Validate contact number
+    if (formData.contactNumber.trim() === "") {
+      errors.contactNumber = "Contact number is required";
+    }
+
+    // Validate company
+    if (formData.company.trim() === "") {
+      errors.company = "Company is required";
+    }
+    // Validate state
+    if (formData.state.trim() === "") {
+      errors.state = "State is required";
+    }
+
+    // Validate describe
+    if (formData.describe.trim() === "") {
+      errors.describe = "Description is required";
+    }
+
+    return errors;
+  };
+
   return (
     <div>
       <div className="relative h-screen flex">
@@ -96,8 +172,8 @@ function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="absolute  left-[700px] top-[10%] w-[37%] bg-white shadow-xl rounded-lg opacity-100">
-          <form className="p-8">
+        <div className="absolute left-[700px] top-[10%] w-[37%] bg-white shadow-xl rounded-lg opacity-100">
+          <form className="p-8" onSubmit={handleSubmit}>
             <h1 className="text-2xl font-bold mb-4">
               Connect With Us <br />
               <span className="text-gray-600 text-sm">
@@ -117,7 +193,14 @@ function LandingPage() {
                   type="text"
                   id="firstName"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.firstName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
                 />
+                {formErrors.firstName && (
+                  <div className="text-red-500">{formErrors.firstName}</div>
+                )}
               </div>
 
               <div className="w-1/2">
@@ -131,7 +214,14 @@ function LandingPage() {
                   type="text"
                   id="lastName"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.lastName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastName: e.target.value })
+                  }
                 />
+                {formErrors.lastName && (
+                  <div className="text-red-500">{formErrors.lastName}</div>
+                )}
               </div>
             </div>
 
@@ -144,10 +234,17 @@ function LandingPage() {
                   Email
                 </label>
                 <input
-                  type="email"
-                  id="email"
+                  type="text"
+                  id="lastName"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
+                {formErrors.email && (
+                  <div className="text-red-500">{formErrors.email}</div>
+                )}
               </div>
 
               <div className="w-1/2">
@@ -158,10 +255,17 @@ function LandingPage() {
                   Contact Number
                 </label>
                 <input
-                  type="tel"
-                  id="contactNumber"
+                  type="text"
+                  id="lastName"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.contactNumber}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contactNumber: e.target.value })
+                  }
                 />
+                {formErrors.contactNumber && (
+                  <div className="text-red-500">{formErrors.contactNumber}</div>
+                )}
               </div>
             </div>
 
@@ -175,9 +279,16 @@ function LandingPage() {
                 </label>
                 <input
                   type="text"
-                  id="company"
+                  id="lastName"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
                 />
+                {formErrors.company && (
+                  <div className="text-red-500">{formErrors.company}</div>
+                )}
               </div>
 
               <div className="w-1/2">
@@ -190,12 +301,19 @@ function LandingPage() {
                 <select
                   id="state"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.state}
+                  onChange={(e) =>
+                    setFormData({ ...formData, state: e.target.value })
+                  }
                 >
-                  <option value="">Califonia</option>
-                  <option value="state1">State 1</option>
+                  <option value="">select state</option>
+                  <option value="state1">Califonia</option>
                   <option value="state2">State 2</option>
                   <option value="state3">State 3</option>
                 </select>
+                {formErrors.state && (
+                  <div className="text-red-500">{formErrors.state}</div>
+                )}
               </div>
             </div>
 
@@ -210,30 +328,19 @@ function LandingPage() {
                 <select
                   id="describe"
                   className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
+                  value={formData.describe}
+                  onChange={(e) =>
+                    setFormData({ ...formData, describe: e.target.value })
+                  }
                 >
-                  <option value="">Installer</option>
-                  <option value="option1">Option 1</option>
+                  <option value="">select</option>
+                  <option value="option1">Installer</option>
                   <option value="option2">Option 2</option>
                   <option value="option3">Option 3</option>
                 </select>
-              </div>
-
-              <div className="">
-                <label
-                  htmlFor="Preferred"
-                  className="block font-semibold text-gray-900 text-sm"
-                >
-                  Preferred Distributor
-                </label>
-                <select
-                  id="Preferred"
-                  className="w-full border-gray-300 border rounded-md px-4 py-2 text-sm"
-                >
-                  <option value="">AeroTech</option>
-                  <option value="industry1">Industry 1</option>
-                  <option value="industry2">Industry 2</option>
-                  <option value="industry3">Industry 3</option>
-                </select>
+                {formErrors.describe && (
+                  <div className="text-red-500">{formErrors.describe}</div>
+                )}
               </div>
             </div>
 
@@ -264,9 +371,15 @@ function LandingPage() {
             <button
               type="submit"
               className="bg-[#f26621] text-white text-lg px-[24px] py-[3px] mx-28 rounded-md mt-2"
+              disabled={submitted}
             >
               Submit
             </button>
+            {submitted ? (
+              <div className="text-green-500 font-semibold">
+                Thank you for submitting the form!
+              </div>
+            ) : null}
           </form>
         </div>
       </div>

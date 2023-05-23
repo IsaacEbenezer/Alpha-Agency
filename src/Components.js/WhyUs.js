@@ -4,7 +4,7 @@ import icon1 from "../assests/Group 110.png"
 
 function WhyUs() {
   return (
-    <div className='flex  bg-gray-300'>
+    <div className=' relative top-[568px] flex  bg-gray-300 '>
       <img src={wall} alt="wall" className='h-screen w-auto max-w-1/2 mr-4' />
       <div className='flex flex-col justify-center  mx-10'>
         <h1 className='text-2xl font-bold mb-4'>Why us?</h1>

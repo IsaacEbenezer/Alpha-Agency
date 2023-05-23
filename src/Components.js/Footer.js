@@ -3,7 +3,7 @@ import logo from "../assests/Vector Smart Object.png"
 function Footer() {
   return (
     <div>
-    <div className='flex h-[146px] bg-[#1a1a1a] top-[60px]'>
+    <div className='relative top-[568px] flex h-[146px] bg-[#1a1a1a] '>
       <div className='flex justify-between items-center w-full px-4 text-white'>
         <div className=''>
           <h1 className='mx-10 text-w'>Best solutions from</h1>
