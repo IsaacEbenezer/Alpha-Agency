@@ -2,6 +2,7 @@ import React from "react";
 import banner from "../assests/banner image copy.png";
 import logo from "../assests/Asset 3@4x-8.png";
 import back from "../assests/Group 217.png";
+import icon from "../assests/Group 110.png";
 
 function LandingPage() {
   return (
@@ -27,6 +28,26 @@ function LandingPage() {
             <span className="font-thin text-gray-600">
               for ramped up protection
             </span>
+            <div className="flex justify-between">
+              <div className="flex flex-col items-center w-16">
+                <div className="flex bg-black rounded-full p-2 mx-2">
+                  <img src={icon} className="w-6 h-6" alt="icon" />
+                </div>
+                <p className=" text-xs mt-2">Maximum Durability</p>
+              </div>
+              <div className="flex flex-col items-center ml-2  w-16">
+                <div className="flex bg-black rounded-full p-2">
+                  <img src={icon} className="w-6 h-6" alt="icon" />
+                </div>
+                <p className="text-xs mt-2">Enhanced Appearance</p>
+              </div>
+              <div className="flex flex-col items-center ml-2  ">
+                <div className="flex bg-black rounded-full p-2 ">
+                  <img src={icon} className="w-6 h-6" alt="icon" />
+                </div>
+                <p className="text-xs mt-2">High Gloss</p>
+              </div>
+            </div>
           </div>
 
           <div className="relative h-screen ">
@@ -234,7 +255,6 @@ function LandingPage() {
               <label htmlFor="terms" className="flex items-center">
                 <input type="checkbox" id="terms" className="mr-2" />
                 <span className="text-gray-900 text-sm">
-                  {" "}
                   I'd like to receive promotions, product information and
                   service offers from Avery Dennison.
                 </span>

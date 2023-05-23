@@ -1,13 +1,9 @@
-import Footer from "./Components.js/Footer";
-import LandingPage from "./Components.js/LandingPage";
-import WhyUs from "./Components.js/WhyUs";
+import Home from "./Components.js/pages/Home";
 
 function App() {
   return (
     <div className="App">
-     <LandingPage/>
-     <WhyUs/>
-     <Footer/>
+    <Home/>
     </div>
   );
 }
